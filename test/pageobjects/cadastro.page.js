@@ -27,12 +27,19 @@ class cadastroPage{
     return $('id:create')
    }
    async cadastro (firstName, lastName, phone, email, password, repassword) {
-     await this.firstName.setValue(firstName)
-     await this.lastName.setValue(lastName)
-     await this.phone.setValue(phone)
-     await this.email.setValue(email)
-     await this.password.setValue(password)
+     await this.firstName.waitForExist({timeout: 5000});
+     await this.firstName.setValue(firstName);
+     await this.lastName.waitForExist({timeout: 5000});
+     await this.lastName.setValue(lastName);
+     await this.phone.waitForExist({timeout: 5000});
+     await this.phone.setValue(phone);
+     await this.email.waitForExist({timeout: 5000});
+     await this.email.setValue(email);
+     await this.password.waitForExist({timeout: 5000});
+     await this.password.setValue(password);
+     await this.repassword.waitForExist({timeout: 5000});
      await this.repassword.setValue(repassword)
+     await this.create.waitForExist({timeout:5000})
      await this.create.click()
 
    }

@@ -12,9 +12,13 @@ class LoginPage {
      }
     
      async login(email, password){
-       await this.email.setValue(email)
-       await this.password.setValue(password)
-       await this.btnLogin.click()
+      await this.email.waitForExist ({timeout: 5000});
+      await this.email.setValue(email);
+      await this.password.waitForExist({timeout: 5000});
+       await this.password.setValue(password);
+       await this.btnLogin.waitForExist({timeout: 500});
+       await this.btnLogin.click();
+
 }
    }
 
